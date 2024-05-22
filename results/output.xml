@@ -1,66 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.10.14 on darwin)" generated="2024-05-23T00:24:14.288597" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.10.14 on darwin)" generated="2024-05-23T01:04:53.210835" rpa="false" schemaversion="5">
 <suite id="s1" name="6-Mfa" source="/Users/jg/Documents/NP/6-mfa">
-<suite id="s1-s1" name="Mfa" source="/Users/jg/Documents/NP/6-mfa/mfa.robot">
-<kw name="New Browser" type="SETUP">
-<msg time="2024-05-23T00:24:14.305217" level="FAIL">No keyword with name 'New Browser' found.</msg>
+<suite id="s1-s1" name="0-Mfa" source="/Users/jg/Documents/NP/6-mfa/0-mfa.robot">
+<kw name="New Browser" owner="Browser" type="SETUP">
+<msg time="2024-05-23T01:04:54.536797" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/Users/jg/Documents/NP/6-mfa/results/browser/traces/0a1b0bb5-2792-45f9-af7a-0ed867ae2f5b"}</msg>
+<msg time="2024-05-23T01:04:54.764162" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/Users/jg/Documents/NP/6-mfa/results/browser/traces/0a1b0bb5-2792-45f9-af7a-0ed867ae2f5b"}</msg>
 <arg>browser=${BROWSER}</arg>
 <arg>headless=${HEADLESS}</arg>
-<status status="FAIL" start="2024-05-23T00:24:14.304694" elapsed="0.000630">No keyword with name 'New Browser' found.</status>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-05-23T01:04:54.536103" elapsed="0.228575"/>
 </kw>
 <test id="s1-s1-t1" name="Login with MFA" line="14">
-<status status="FAIL" start="2024-05-23T00:24:14.305867" elapsed="0.000276">Parent suite setup failed:
-No keyword with name 'New Browser' found.</status>
-</test>
-<kw name="Close Browser" type="TEARDOWN">
-<msg time="2024-05-23T00:24:14.307476" level="FAIL">No keyword with name 'Close Browser' found.</msg>
-<status status="FAIL" start="2024-05-23T00:24:14.307010" elapsed="0.000563">No keyword with name 'Close Browser' found.</status>
+<kw name="New Context" owner="Browser" type="SETUP">
+<msg time="2024-05-23T01:04:54.769596" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "height": 720,
+    "width": 1280
+  }
+}</msg>
+<msg time="2024-05-23T01:04:54.783414" level="INFO">Successfully created context. </msg>
+<msg time="2024-05-23T01:04:54.783574" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'height': 720, 'width': 1280}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2024-05-23T01:04:54.769108" elapsed="0.014693"/>
 </kw>
-<status status="FAIL" start="2024-05-23T00:24:14.301361" elapsed="0.006667">Suite setup failed:
-No keyword with name 'New Browser' found.
-
-Also suite teardown failed:
-No keyword with name 'Close Browser' found.</status>
+<kw name="New Page" owner="Browser">
+<msg time="2024-05-23T01:04:55.330040" level="INFO">Successfully initialized new page object and opened url: https://seleniumbase.io/realworld/login</msg>
+<arg>https://seleniumbase.io/realworld/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-05-23T01:04:54.784301" elapsed="0.545949"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-05-23T01:04:55.331114" level="INFO">Fills the text 'demo_user' in the given field.</msg>
+<arg>id=username</arg>
+<arg>demo_user</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-05-23T01:04:55.330580" elapsed="0.019335"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-05-23T01:04:55.350602" level="INFO">Fills the text 'secret_pass' in the given field.</msg>
+<arg>id=password</arg>
+<arg>secret_pass</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-05-23T01:04:55.350181" elapsed="0.039100"/>
+</kw>
+<kw name="Get Totp" owner="totp">
+<msg time="2024-05-23T01:04:55.389870" level="INFO">${totp} = 460657</msg>
+<var>${totp}</var>
+<arg>GAXG2MTEOR3DMMDG</arg>
+<status status="PASS" start="2024-05-23T01:04:55.389534" elapsed="0.000421"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-05-23T01:04:55.390671" level="INFO">Fills the text '460657' in the given field.</msg>
+<arg>id=totpcode</arg>
+<arg>${totp}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-05-23T01:04:55.390195" elapsed="0.007538"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-05-23T01:04:55.398385" level="INFO">Clicks the element '"Sign in"'.</msg>
+<arg>"Sign in"</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-05-23T01:04:55.398007" elapsed="0.071855"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-05-23T01:04:55.504993" level="INFO">Text: 'Welcome!'</msg>
+<arg>h1</arg>
+<arg>==</arg>
+<arg>Welcome!</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-05-23T01:04:55.470173" elapsed="0.034992"/>
+</kw>
+<kw name="Close Context" owner="Browser" type="TEARDOWN">
+<msg time="2024-05-23T01:04:55.507702" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2024-05-23T01:04:55.509051" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2024-05-23T01:04:55.509189" level="INFO">Switching browser to browser=4ac54078-3ddc-413b-8282-5d83368862b0</msg>
+<msg time="2024-05-23T01:04:55.510192" level="INFO">Successfully changed active browser: browser=4ac54078-3ddc-413b-8282-5d83368862b0</msg>
+<msg time="2024-05-23T01:04:55.510286" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2024-05-23T01:04:55.517750" level="INFO">Returned active context id: CURRENT</msg>
+<msg time="2024-05-23T01:04:55.518263" level="INFO">Switching context to context=db9ac22b-bbc2-4fb9-a544-d2f61c486795 in CURRENT</msg>
+<msg time="2024-05-23T01:04:55.522707" level="INFO">Successfully changed active context: context=db9ac22b-bbc2-4fb9-a544-d2f61c486795</msg>
+<msg time="2024-05-23T01:04:55.560342" level="INFO">Successfully closed Context</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2024-05-23T01:04:55.505542" elapsed="0.055094"/>
+</kw>
+<status status="PASS" start="2024-05-23T01:04:54.765420" elapsed="0.795555"/>
+</test>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2024-05-23T01:04:55.612693" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-23T01:04:55.566012" elapsed="0.047172"/>
+</kw>
+<status status="PASS" start="2024-05-23T01:04:53.223785" elapsed="2.389692"/>
 </suite>
-<status status="FAIL" start="2024-05-23T00:24:14.290363" elapsed="0.018287"/>
+<status status="PASS" start="2024-05-23T01:04:53.212898" elapsed="2.405489"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="6-Mfa">6-Mfa</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1" name="Mfa">6-Mfa.Mfa</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="6-Mfa">6-Mfa</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="0-Mfa">6-Mfa.0-Mfa</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2024-05-23T00:24:14.302518" level="ERROR">Error in file '/Users/jg/Documents/NP/6-mfa/mfa.robot' on line 2: Importing library 'Browser' failed: ModuleNotFoundError: No module named 'Browser'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  /Users/jg/Documents/NP/6-mfa/lib
-  /Users/jg/Documents/NP/6-mfa/resources
-  /Users/jg/.vscode/extensions/d-biehl.robotcode-0.83.0/bundled/libs
-  /Users/jg/.vscode/extensions/d-biehl.robotcode-0.83.0/bundled/tool/robotcode
-  /Users/jg/.pyenv/versions/3.10.14/lib/python310.zip
-  /Users/jg/.pyenv/versions/3.10.14/lib/python3.10
-  /Users/jg/.pyenv/versions/3.10.14/lib/python3.10/lib-dynload
-  /Users/jg/.pyenv/versions/3.10.14/lib/python3.10/site-packages</msg>
-<msg time="2024-05-23T00:24:14.303649" level="ERROR">Error in file '/Users/jg/Documents/NP/6-mfa/mfa.robot' on line 3: Importing library '/Users/jg/Documents/NP/6-mfa/totp.py' failed: ModuleNotFoundError: No module named 'pyotp'
-Traceback (most recent call last):
-  File "/Users/jg/Documents/NP/6-mfa/totp.py", line 1, in &lt;module&gt;
-    import pyotp
-PYTHONPATH:
-  /Users/jg/Documents/NP/6-mfa
-  /Users/jg/Documents/NP/6-mfa/lib
-  /Users/jg/Documents/NP/6-mfa/resources
-  /Users/jg/.vscode/extensions/d-biehl.robotcode-0.83.0/bundled/libs
-  /Users/jg/.vscode/extensions/d-biehl.robotcode-0.83.0/bundled/tool/robotcode
-  /Users/jg/.pyenv/versions/3.10.14/lib/python310.zip
-  /Users/jg/.pyenv/versions/3.10.14/lib/python3.10
-  /Users/jg/.pyenv/versions/3.10.14/lib/python3.10/lib-dynload
-  /Users/jg/.pyenv/versions/3.10.14/lib/python3.10/site-packages</msg>
 </errors>
 </robot>
