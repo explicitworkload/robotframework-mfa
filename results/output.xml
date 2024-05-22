@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.10.14 on darwin)" generated="2024-05-23T00:24:14.288597" rpa="false" schemaversion="5">
+<suite id="s1" name="6-Mfa" source="/Users/jg/Documents/NP/6-mfa">
+<suite id="s1-s1" name="Mfa" source="/Users/jg/Documents/NP/6-mfa/mfa.robot">
+<kw name="New Browser" type="SETUP">
+<msg time="2024-05-23T00:24:14.305217" level="FAIL">No keyword with name 'New Browser' found.</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=${HEADLESS}</arg>
+<status status="FAIL" start="2024-05-23T00:24:14.304694" elapsed="0.000630">No keyword with name 'New Browser' found.</status>
+</kw>
+<test id="s1-s1-t1" name="Login with MFA" line="14">
+<status status="FAIL" start="2024-05-23T00:24:14.305867" elapsed="0.000276">Parent suite setup failed:
+No keyword with name 'New Browser' found.</status>
+</test>
+<kw name="Close Browser" type="TEARDOWN">
+<msg time="2024-05-23T00:24:14.307476" level="FAIL">No keyword with name 'Close Browser' found.</msg>
+<status status="FAIL" start="2024-05-23T00:24:14.307010" elapsed="0.000563">No keyword with name 'Close Browser' found.</status>
+</kw>
+<status status="FAIL" start="2024-05-23T00:24:14.301361" elapsed="0.006667">Suite setup failed:
+No keyword with name 'New Browser' found.
+
+Also suite teardown failed:
+No keyword with name 'Close Browser' found.</status>
+</suite>
+<status status="FAIL" start="2024-05-23T00:24:14.290363" elapsed="0.018287"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="6-Mfa">6-Mfa</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Mfa">6-Mfa.Mfa</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-05-23T00:24:14.302518" level="ERROR">Error in file '/Users/jg/Documents/NP/6-mfa/mfa.robot' on line 2: Importing library 'Browser' failed: ModuleNotFoundError: No module named 'Browser'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /Users/jg/Documents/NP/6-mfa/lib
+  /Users/jg/Documents/NP/6-mfa/resources
+  /Users/jg/.vscode/extensions/d-biehl.robotcode-0.83.0/bundled/libs
+  /Users/jg/.vscode/extensions/d-biehl.robotcode-0.83.0/bundled/tool/robotcode
+  /Users/jg/.pyenv/versions/3.10.14/lib/python310.zip
+  /Users/jg/.pyenv/versions/3.10.14/lib/python3.10
+  /Users/jg/.pyenv/versions/3.10.14/lib/python3.10/lib-dynload
+  /Users/jg/.pyenv/versions/3.10.14/lib/python3.10/site-packages</msg>
+<msg time="2024-05-23T00:24:14.303649" level="ERROR">Error in file '/Users/jg/Documents/NP/6-mfa/mfa.robot' on line 3: Importing library '/Users/jg/Documents/NP/6-mfa/totp.py' failed: ModuleNotFoundError: No module named 'pyotp'
+Traceback (most recent call last):
+  File "/Users/jg/Documents/NP/6-mfa/totp.py", line 1, in &lt;module&gt;
+    import pyotp
+PYTHONPATH:
+  /Users/jg/Documents/NP/6-mfa
+  /Users/jg/Documents/NP/6-mfa/lib
+  /Users/jg/Documents/NP/6-mfa/resources
+  /Users/jg/.vscode/extensions/d-biehl.robotcode-0.83.0/bundled/libs
+  /Users/jg/.vscode/extensions/d-biehl.robotcode-0.83.0/bundled/tool/robotcode
+  /Users/jg/.pyenv/versions/3.10.14/lib/python310.zip
+  /Users/jg/.pyenv/versions/3.10.14/lib/python3.10
+  /Users/jg/.pyenv/versions/3.10.14/lib/python3.10/lib-dynload
+  /Users/jg/.pyenv/versions/3.10.14/lib/python3.10/site-packages</msg>
+</errors>
+</robot>
